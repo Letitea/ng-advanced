@@ -1,0 +1,126 @@
+<div class="container">
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                </div>
+                <ng-form
+                  #ngForm="ngForm"
+                  (ngSubmit)="doLogin(ngForm)"
+                  class="user"
+                >
+                  <div class="form-group">
+                    <input
+                      type="email"
+                      [class.is-invalid]="isInvalid(mEmail, ngForm)"
+                      [class.is-valid]="isValid(mEmail)"
+                      required
+                      email
+                      #mEmail="ngModel"
+                      name="email"
+                      [(ngModel)]="data.email"
+                      class="form-control form-control-user"
+                      id="exampleInputEmail"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter Email Address..."
+                    />
+                    <p
+                      class="invalid-feedback"
+                      *ngIf="isInvalid(mEmail,ngForm)&&mEmail.errors?.['required']"
+                    >
+                      請輸入Email地址
+                    </p>
+                    <p
+                      class="invalid-feedback"
+                      *ngIf="isInvalid(mEmail,ngForm)&&mEmail.errors?.['email']"
+                    >
+                      請輸入合法的Email地址
+                    </p>
+                    <pre>
+                      mEmail.name={{ mEmail.name }}
+                      mEmail.value={{ mEmail.value }}
+                      mEmail.invalid={{ mEmail.invalid }}
+                      mEmail.touched={{ mEmail.touched }}
+                      mEmail.untouched={{ mEmail.untouched }}
+                      mEmail.pristine={{ mEmail.pristine }}
+                      mEmail.dirty={{ mEmail.dirty }}
+                      mEmail.enabled={{ mEmail.enabled }}
+                      mEmail.disabled={{ mEmail.disabled }}
+                      mEmail.errors={{ mEmail.errors | json }}
+                    </pre>
+                  </div>
+                  <div class="form-group">
+                    <input
+                      type="password"
+                      [class.is-invalid]="isInvalid(mPassword, ngForm)"
+                      [class.is-valid]="isValid(mPassword)"
+                      required
+                      #mPassword="ngModel"
+                      name="password"
+                      [(ngModel)]="data.password"
+                      class="form-control form-control-user"
+                      id="exampleInputPassword"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <div class="custom-control custom-checkbox small">
+                      <input
+                        type="checkbox"
+                        #mIsRemember="ngModel"
+                        name="isRemember"
+                        [(ngModel)]="data.isRemember"
+                        class="custom-control-input"
+                        id="customCheck"
+                      />
+                      <label class="custom-control-label" for="customCheck"
+                        >Remember Me</label
+                      >
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    [disabled]="ngForm.invalid"
+                    class="btn btn-primary btn-user btn-block"
+                  >
+                    Login
+                  </button>
+                  <hr />
+                  <a
+                    href="index.html"
+                    class="btn btn-google btn-user btn-block"
+                  >
+                    <i class="fab fa-google fa-fw"></i> Login with Google
+                  </a>
+                  <a
+                    href="index.html"
+                    class="btn btn-facebook btn-user btn-block"
+                  >
+                    <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                  </a>
+                </ng-form>
+                <hr />
+                <div class="text-center">
+                  <a class="small" href="forgot-password.html"
+                    >Forgot Password?</a
+                  >
+                </div>
+                <div class="text-center">
+                  <a class="small" href="register.html">Create an Account!</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

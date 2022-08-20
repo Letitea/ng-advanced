@@ -1,4 +1,7 @@
 {
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
-  "recommendations": ["doggy8088.angular-extension-pack"]
+  "recommendations": [
+    "doggy8088.angular-extension-pack",
+    "nrwl.angular-console"
+  ]
 }
